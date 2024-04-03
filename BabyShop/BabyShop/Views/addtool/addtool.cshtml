@@ -1,0 +1,125 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model BabyShop.Models.babytools
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   @* <title>Signup</title>*@
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/564x/20/22/ed/2022ed0f19d8836f7a7d10f3be60c9ab.jpg');
+            background-size: 60%; /* Adjust the width of the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            background-position: center; /* Center the background image */
+            color: #000000; /* Text color - Black */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0; /* No margins */
+            padding: 0; /* No padding */
+        }
+
+        h2 {
+            color: #CAAF95; /* Title color - Tan */
+            text-align: center; /* Center-align the text */
+        }
+
+        label {
+            color: #C9B199; /* Label color - Light Brown */
+            font-weight: bold; /* Bold text */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], button {
+            background-color: #FFFFFF; /* Input field background - White */
+            border: 1px solid #C9B199; /* Input field border - Light Brown */
+            color: #000000; /* Text color in input fields - Black */
+            padding: 8px; /* Padding inside input fields */
+            margin-bottom: 10px; /* Margin below input fields */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+            border-color: #FF69B4; /* Border color on focus - Magenta */
+        }
+
+        button {
+            background-color: #CAAF95; /* Button background color - Tan */
+            color: #FFFFFF; /* Button text color - White */
+            border: none; /* No border */
+            padding: 10px 20px; /* Padding inside the button */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+
+        button:hover {
+            background-color: #E2CEBA; /* Button background color on hover - Light Grayish Magenta */
+        }
+
+        form {
+            max-width: 400px; /* Form width */
+            margin: 50px auto; /* Margin above and below the form */
+            padding: 20px; /* Padding inside the form */
+            background-color: rgba(255, 255, 255, .4); /* Form background color - White with 40% opacity */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Form shadow */
+        }
+
+        .error-message {
+            color: #FF0000; /* Error message color - Red */
+        }
+    </style>
+</head>
+<body>
+    <h2>ADD TOOL</h2>
+
+    <form asp-controller="addtool" asp-action="entertool" method="post">
+        <div asp-validation-summary="All"></div>
+
+        <div>
+            <label asp-for="id">ID</label>
+            <input asp-for="id" />
+            <span asp-validation-for="id" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="name">Name</label>
+            <input asp-for="name" />
+            <span asp-validation-for="name" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="price">Price</label>
+            <input asp-for="price" />
+            <span asp-validation-for="price" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="amount">Amount</label>
+            <input asp-for="amount" />
+            <span asp-validation-for="amount" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="age">Age</label>
+            <input asp-for="age" />
+            <span asp-validation-for="age" class="error-message"></span>
+        </div>
+        
+        <div>
+            <label asp-for="img">Img</label>
+            <input asp-for="img" />
+            <span asp-validation-for="img" class="error-message"></span>
+        </div>
+
+        <button type="submit">ADD</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כפתורים</title>
+    <style>
+        /* Set background image */
+        body {
+            background-image: url('https://i.pinimg.com/564x/d6/8a/86/d68a86464f1ef5c10942c02f8f673317.jpg');
+            background-size: 50%; /* Reduce the size of the background image to 50% */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            background-position: center; /* Center the background image */
+            font-family: Arial, sans-serif; /* Specify a fallback font */
+        }
+
+        /* Card styles */
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 150px auto 20px;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, .4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Button styles */
+        .button,
+        .button2,
+        .button3 {
+            background-color: #C9B199; /* צבע ראשון */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        .button2 {
+            background-color: #E2CEBA; /* צבע שני */
+        }
+
+        .button3 {
+            background-color: #CAAF95; /* צבע שלישי */
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <form asp-controller="addtoy" asp-action="homepageadd">
+   
+            <button asp-controller="addtoy" asp-action="addtoy"  class="button">ADD TOY</button>
+        
+            <br />
+            <br />
+            <br />
+            <button asp-controller="addtool" asp-action="addtool" class="button2">ADD TOOL</button>
+            <br />
+            <br />
+            <br />
+            <button asp-controller="addfood" asp-action="addfood" class="button3">ADD FOOD</button>
+        </form>
+    </div>
+</body>
+</html>

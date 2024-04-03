@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   @model BabyShop.Models.Customers
+   @* <title>Signup</title>*@
+    <style>
+     
+        body {
+            background-image: url('https://i.pinimg.com/564x/9b/e2/6f/9be26f1119b630ca17fe03c35934a5e5.jpg');
+            background-size: 40%; /* Adjust the width of the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            background-position: center; /* Center the background image */
+            color: #000000; /* Text color - Black */
+            font-family: Arial, sans-serif; /* Font family */
+            margin: 0; /* No margins */
+            padding: 0; /* No padding */
+        }
+
+        h2 {
+            color: #B19C88; /* צבע כותרת - תורם */
+            text-align:center;
+        }
+
+        label {
+            color: #B19C88; /* צבע תווית - תורם */
+            font-weight: bold; /* טקסט מודגש  */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], button {
+            background-color: #FFFFFF; /* רקע שדה קלט - לבן */
+            border: 1px solid #B19C88; /* מסגרת שדה קלט - תורם */
+            color: #000000; /* צבע טקסט בשדה קלט - שחור */
+            padding: 8px; /* מרווח בתוך השדה קלט */
+            margin-bottom: 10px; /* מרווח מתחת לשדה קלט */
+            font-family: Arial, sans-serif; /* גופן טקסט */
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+            border-color: #B19C88; /* מסגרת שדה קלט ברקע מבודד - תורם */
+        }
+
+        button {
+            background-color: #B19C88; /* רקע כפתור - תורם */
+            color: #FFFFFF; /* צבע טקסט בכפתור - לבן */
+            border: none; /* אין מסגרת לכפתור */
+            padding: 10px 20px; /* מרווח בתוך הכפתור */
+            cursor: pointer; /* הפריט משנה צורה כשמוביל עליו העכבר */
+            font-family: Arial, sans-serif; /* גופן טקסט */
+        }
+
+        button:hover {
+            background-color: #FDD5DF; /* רקע כפתור ברקע מבודד - תורם */
+        }
+
+        form {
+            max-width: 400px; /* רוחב הטופס */
+            margin: 50px auto; /* מרווח מעליו ומתחתיו */
+            padding: 20px; /* מרווח בתוך הטופס */
+            background-color: rgba(255, 255, 255, .4); /* רקע טופס - לבן */
+            border-radius: 10px; /* פינות מעוגלות */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* צלליית הטופס */
+        }
+
+        .error-message {
+            color: #FF0000; /* צבע הודעת שגיאה - אדום */
+        }
+    </style>
+</head>
+<body>
+    <h2 > Signup</h2>
+
+    <form asp-controller="signup" asp-action="enter" method="post">
+        <div asp-validation-summary="All"></div>
+
+        <div>
+            <label asp-for="id">ID</label>
+            <input asp-for="id" />
+            <span asp-validation-for="id" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="username">Username</label>
+            <input asp-for="username" />
+            <span asp-validation-for="username" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="email">Email</label>
+            <input asp-for="email" />
+            <span asp-validation-for="email" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="password">Password</label>
+            <input asp-for="password" />
+            <span asp-validation-for="password" class="error-message"></span>
+        </div>
+
+        <div>
+            <label asp-for="phone">Phone</label>
+            <input asp-for="phone" />
+            <span asp-validation-for="phone" class="error-message"></span>
+        </div>
+
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>

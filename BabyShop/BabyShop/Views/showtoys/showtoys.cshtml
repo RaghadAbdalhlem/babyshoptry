@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Index.cshtml -->
+
+@model List<BabyShop.Models.babytoys>
+
+<h2>List of Baby Toys</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Age</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var toy in Model)
+        {
+            <tr>
+                
+                <td>@toy.name</td>
+                <td>@toy.price</td>
+                <td>@toy.amount</td>
+                <td>@toy.age</td>
+                <td><img src="@toy.img" alt="Toy Image" width="100"></td>
+            </tr>
+        }
+    </tbody>
+</table>

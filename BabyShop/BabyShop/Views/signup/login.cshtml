@@ -1,0 +1,203 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F7CDEE; /* Baby pink color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" asp-controller="signup" asp-action="login" method="post">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>
+*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   @* <title>Signup</title>*@
+    <style>
+        body {
+            background-color: #F9E4E6; /* צבע רקע - פסטל ורוד */
+            color: #000000; /* צבע טקסט - שחור */
+            font-family: Arial, sans-serif; /* גופן טקסט */
+            margin: 0; /* אין שוליים */
+            padding: 0; /* אין מרווח */
+        }
+
+        h2 {
+            color: #FF69B4; /* צבע כותרת - תורם */
+        }
+
+        label {
+            color: #FDD5DF; /* צבע תווית - תורם */
+            font-weight: bold; /* טקסט מודגש */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], button {
+            background-color: #FFFFFF; /* רקע שדה קלט - לבן */
+            border: 1px solid #FDD5DF; /* מסגרת שדה קלט - תורם */
+            color: #000000; /* צבע טקסט בשדה קלט - שחור */
+            padding: 8px; /* מרווח בתוך השדה קלט */
+            margin-bottom: 10px; /* מרווח מתחת לשדה קלט */
+            font-family: Arial, sans-serif; /* גופן טקסט */
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+            border-color: #FF69B4; /* מסגרת שדה קלט ברקע מבודד - תורם */
+        }
+
+        button {
+            background-color: #FDD5DF; /* רקע כפתור - תורם */
+            color: #FFFFFF; /* צבע טקסט בכפתור - לבן */
+            border: none; /* אין מסגרת לכפתור */
+            padding: 10px 20px; /* מרווח בתוך הכפתור */
+            cursor: pointer; /* הפריט משנה צורה כשמוביל עליו העכבר */
+            font-family: Arial, sans-serif; /* גופן טקסט */
+        }
+
+        button:hover {
+            background-color: #FDD5DF; /* רקע כפתור ברקע מבודד - תורם */
+        }
+
+        form {
+            max-width: 400px; /* רוחב הטופס */
+            margin: 50px auto; /* מרווח מעליו ומתחתיו */
+            padding: 20px; /* מרווח בתוך הטופס */
+            background-color: #FFFFFF; /* רקע טופס - לבן */
+            border-radius: 10px; /* פינות מעוגלות */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* צלליית הטופס */
+        }
+
+        .error-message {
+            color: #FF0000; /* צבע הודעת שגיאה - אדום */
+        }
+    </style>
+</head>
+<body>
+    <h2 >LOG IN</h2>
+    @model BabyShop.Models.Customers
+
+    <form asp-controller="signup" asp-action="login" method="post">
+        <div asp-validation-summary="All"></div>
+
+      
+
+        <div>
+            <label asp-for="username">Username</label>
+            <input asp-for="username" />
+            <span asp-validation-for="username" class="error-message"></span>
+        </div>
+
+    
+
+        <div>
+            <label asp-for="password">Password</label>
+            <input asp-for="password" />
+            <span asp-validation-for="password" class="error-message"></span>
+        </div>
+
+  
+
+        <button type="submit">LOG IN</button>
+    </form>
+</body>
+</html>
+
+
+
+
+

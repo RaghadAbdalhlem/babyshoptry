@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cart</title>
+    </head>
+    <body>
+        <h1>cart items</h1>
+        <div id="cart-items">
+            <!--Cart items will be displayed here -->
+        </div>
+        <script>
+            $(document).ready(function(){
+
+                var cartItems=JSON.parse(localStorage.getItem("cartItems"))|| [];
+
+
+                var cartContainer=$("#cart-items");
+
+
+
+                cartItems.forEach(function(item){
+                    var poroductHTML=`
+                            <div>
+                           <img src="${item.img}" alt="${item.name}" style="width:100px;">
+                           <p>${item.name} - $${item.price}</p>
+                            </div>
+                    `;
+                    cartContainer.append(poroductHTML);
+                })
+            })
+        </script>
+    </body>
+</html>

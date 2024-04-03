@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<BabyShop.Models.babytools>
+
+<h2>List of Baby Tools</h2>
+
+<div class="row">
+    @foreach (var tool in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="@tool.img" class="card-img-top tool-image" alt="Tool Image"> <!-- Added "tool-image" class -->
+                <div class="card-body">
+                    <h5 class="card-title">@tool.name</h5>
+                    <p class="card-text">Price: @tool.price</p>
+                    <p class="card-text">Amount: @tool.amount</p>
+                    <p class="card-text">Age: @tool.age</p>
+                    <button class="btn btn-primary add-to-cart" data-id="@tool.id">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script>
+    $(document).ready(function(){
+        $(".add-to-cart").click(function(){
+            var name=$(this).data("name");
+            var price=$(this).data("price");
+            var amount=$(this).data("amount");
+            var age=$(this).data("age");
+            var img=$(this).data("img");
+
+
+            var tool={
+                name:name,
+                price:price,
+                amount:amount,
+                age:age,
+                img:img
+            };
+            var cartItems=JSON.parse(localStorage.getItem("cartItems")) || [];
+            cartItems.push(tool);
+            localStorage.setItem("cartItems",JSON.stringify(cartItems));
+        });
+    });
+</script>
+
+<!-- Large Image Display -->
+<div class="modal fade" id="largeImageModal" tabindex="-1" role="dialog" aria-labelledby="largeImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" alt="Large Toy Image" id="largeToyImage" class="img-fluid">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Show large image modal when an image is clicked
+            $('.toy-image').click(function () {
+                var imgSrc = $(this).attr('src');
+                $('#largeToyImage').attr('src', imgSrc);
+                $('#largeImageModal').modal('show');
+            });
+
+            // Add to Cart button click handler
+            $('.add-to-cart').click(function () {
+                var toyId = $(this).data('id');
+                // Perform action to add the toy to the cart, e.g., send an AJAX request
+                // You may implement this logic as per your application's requirements
+                console.log('Add to Cart clicked for toy with ID:', toyId);
+            });
+        });
+    </script>
+}
+
+<style>
+    .toy-image {
+        height: 200px; /* Set a fixed height for all toy images */
+        object-fit: cover; /* Maintain aspect ratio and cover the container */
+    }
+</style>
